@@ -55,6 +55,14 @@
 #   1.  Type git add README.md to stage the changes you made to the file.
 #   2.  Type git commit -m "Update README.md" to commit the changes to your local repository. 
         Be sure to replace "Update README.md" with a brief description of the changes you made.
-#   3.  Finally, type git push to push the changes to your remote repository on GitHub. 
+#   3.  Finally, type git push to push the changes to your remote repository on GitHub. The command line for this is:
+        $git push origin main
+        If it is not in the main branch, change to its respective branch's name.
         You may be prompted to enter your GitHub username and password and it means that you do not create
         your SSH or is using a token and it is going to give you an error.
+        If you have already created one SSH and it is still giving an error, try to use in the main folder this command:
+        $git remote set-url origin git@github.com:JoaoMMenezes/TP1-engsoft.git
+        Everything should be working fine after those step, but if it is still giving error, change this .txt with
+        the solution that you have found.
+
+
