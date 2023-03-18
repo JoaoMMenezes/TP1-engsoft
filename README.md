@@ -1,4 +1,4 @@
-# Trabalho Prático 1 - Engenharia de Sotware
+# Trabalho Prático 1 - Engenharia de Software
 
 ## Escopo do sistema:
 
