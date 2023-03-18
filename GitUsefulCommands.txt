@@ -1,0 +1,20 @@
+## Repository clonning
+
+# First step in your terminal, install git:
+    $sudo apt install git
+# Second, go to the directory that you want to have the repository clone:
+    $git init
+# Third, on the same folder:
+    $git clone https://github.com/JoaoMMenezes/TP1-engsoft.git
+
+## Adding changes to the repository, example
+
+#       Use the command git config --global --add safe.directory /path/to/your/repository to give you access to add, commit and pull.
+#       Use the command git config --global user.name "Your Name" or 
+#       git config --global user.email "youremail@example.com" with your GitHub account to enable the commit and pull.
+
+#   1.  Type git add README.md to stage the changes you made to the file.
+#   2.  Type git commit -m "Update README.md" to commit the changes to your local repository. 
+#       Be sure to replace "Update README.md" with a brief description of the changes you made.
+#   3.  Finally, type git push to push the changes to your remote repository on GitHub. 
+#       You may be prompted to enter your GitHub username and password.
