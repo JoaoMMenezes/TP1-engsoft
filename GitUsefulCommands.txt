@@ -7,6 +7,45 @@
 # Third, on the same folder:
     $git clone https://github.com/JoaoMMenezes/TP1-engsoft.git
 
+## Before proceeding, you will need to create a SSH key to link to your GitHub account
+
+#   1.  Check for existing SSH keys: First, check to see if you already have SSH keys on your machine. 
+        Open your terminal and type the following command:
+        $ls -al ~/.ssh
+        This command will list all the files in your SSH directory, including any existing SSH keys. 
+        If you see files named id_rsa.pub or id_dsa.pub, then you already have SSH keys.
+
+#   2.  Generate a new SSH key: If you don't have an SSH key, or you want to use a new one, 
+        you can generate a new one by running the following command:
+        $ssh-keygen -t ed25519 -C "your_email@example.com"
+        I used my example@ufmg.br which was linked to my GitHub account.
+        This command will prompt you to enter a file name for the key (press enter to accept the default), 
+        and then to enter a passphrase (this is optional, but recommended for added security). 
+        Once you have entered this information, your new SSH key will be generated.
+
+#   3.  Add your SSH key to the ssh-agent: Once you have generated an SSH key, you need to add it to the ssh-agent, 
+        which is a program that manages SSH keys. Run the following command to add your key:
+        $eval "$(ssh-agent -s)"
+        $ssh-add ~/.ssh/id_ed25519
+        This will start the ssh-agent, and then add your new SSH key to it.
+
+#   4.  Add your SSH key to your GitHub account: Next, you need to add your SSH key to your GitHub account so that
+        GitHub can recognize your key and allow you to access your repositories. 
+        To do this, go to your GitHub account settings, click on "SSH and GPG keys", and then click "New SSH key". 
+        Give your key a title, and then copy and paste the contents of your id_ed25519.pub file into the "Key" field. 
+        Click "Add SSH key" to save your key.
+
+#   5.  Test your SSH connection: Finally, you can test your SSH connection by running the following command:
+        $ssh -T git@github.com
+        This command will attempt to connect to your GitHub account using your SSH key.
+        If it is your first time, it will ask an yes or no question, type yes. 
+        If everything is set up correctly, you should see a message that says 
+        "Hi username! You've successfully authenticated, but GitHub does not provide shell access." 
+        This means that your SSH authentication is working properly.
+
+#   6.  Once you have completed these steps, you should be able to push your changes to your GitHub repository using SSH authentication. 
+        When you run git push, Git will use your SSH key to authenticate with GitHub and allow you to push your changes to the repository.
+
 ## Adding changes to the repository, example
 
 #       Use the command git config --global --add safe.directory /path/to/your/repository to give you access to add, commit and pull.
@@ -15,6 +54,7 @@
 
 #   1.  Type git add README.md to stage the changes you made to the file.
 #   2.  Type git commit -m "Update README.md" to commit the changes to your local repository. 
-#       Be sure to replace "Update README.md" with a brief description of the changes you made.
+        Be sure to replace "Update README.md" with a brief description of the changes you made.
 #   3.  Finally, type git push to push the changes to your remote repository on GitHub. 
-#       You may be prompted to enter your GitHub username and password.
+        You may be prompted to enter your GitHub username and password and it means that you do not create
+        your SSH or is using a token and it is going to give you an error.
