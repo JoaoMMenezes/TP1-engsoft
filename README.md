@@ -25,10 +25,10 @@
     > Python;<br>
     > Dart.<br>
 
-  Frameworks:
+  Frameworks:<br>
     > Flutter;<br>
     > Flask;<br>
     > Dash.<br>
 
   BD:<br>
-    >;<br>
+    > PostgreSQL;<br>
