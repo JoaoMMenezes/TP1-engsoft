@@ -1,0 +1,1 @@
+##  Session where we will work with our database (db) system in our application.
