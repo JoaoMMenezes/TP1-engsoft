@@ -1,0 +1,31 @@
+##  Create a new user in your PostgreSQL
+
+1. Connect to the PostgreSQL database using the psql command-line tool:
+
+$ sudo -u postgres psql
+
+2. In the psql prompt, create a new user with the desired username, replacing <username> with the name you want to use:
+
+postgres=# CREATE USER <username>;
+
+3. Set a password for the new user:
+
+postgres=# ALTER USER <username> WITH PASSWORD '<password>';
+
+Replace <password> with a strong, secure password (remember that the password must be in ' ').
+
+4. Exit psql by typing \q and pressing Enter.
+
+After creating the new user and granting it the necessary permissions, 
+you should be able to connect to the PostgreSQL database using the new username and password or by peer. 
+Make sure to update your Python code to use the correct username and password.
+
+##  Granting permision to user to create a database:
+
+While in the postgreSQL prompt, type:
+
+ALTER USER bftormin CREATEDB;
+
+Sequentially, in terminal should be:
+
+sudo -u postgres createdb my_db
