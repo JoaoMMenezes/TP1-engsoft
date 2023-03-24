@@ -3,13 +3,13 @@
 ## Escopo do sistema:
 
   Objetivo:<br>
-    > Sistema capaz de gerenciar contas de indivíduos e, ainda, apresentar, de forma numérica e gráfica, informações, como estatísticas, sobre os gastos mensais e anuais da pessoa além da possibilidade de inserir informações como rendimentos para cruzamento de informações.<br>
+    > Criar um sistema de crédito vinculado à carteirinha de identificação da UFMG para ser utilizado nos restaurantes universitários dos campos da UFMG pelos alunos, afim de acelerar a forma de pagamento, diminuir a fila desses restaurantes e diminuir os problemas relacionados a troco.<br>
   
   Principais features:<br>
     > Controle de login de usuário;<br>
-    > Desenvolvimento de um campo para inserção de dados, como rendimento mensal, gasto mensal, etc.;<br>
-    > Visualização de estatísticas a partir de valores numéricos ou gráficos;<br>
-    > Tratamento dos dados de usuário de forma a permitir o cômputo adequado de métricas como média, moda, desvio-padrão, etc.;<br>
+    > Painel de usuário nível 0, com informações de crédito da conta e dados do usuário;<br>
+    > Painel de administrador nível 1, sendo este uma pessoa responsável pela inserção de crédito em contas de usuários nível 0;<br>
+    > Painel de administrador nível 2, sendo este capaz de monitorar o fluxo de pessoas dos restaurantes universitários analisandos as informações relevantes do sistema;<br>
     
 
 ## Membros da equipe e papel:
