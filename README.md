@@ -3,7 +3,7 @@
 ## Escopo do sistema:
 
   Objetivo:<br>
-    > Desenvolver um sistema de crédito vinculado à carteirinha de identificação da UFMG para ser utilizado nos restaurantes universitários dos campos da UFMG pelos alunos. Em essência, o projeto a ser desenvolvido apresenta o intuito de tornar a forma de pagamento mais eficiente, reduzir a fila desses restaurantes, minimizar os problemas relacionados a troco e, ainda, permitir a entendidade gerenciadora obter informações relevantes para aprimoramento da gestão.<br>
+    > Desenvolver um sistema de crédito vinculado à carteirinha de identificação da UFMG para ser utilizado nos restaurantes universitários dos campos da UFMG pelos alunos. Em essência, o projeto a ser desenvolvido apresenta o intuito de tornar a forma de pagamento mais eficiente, reduzir a fila desses restaurantes, minimizar os problemas relacionados a troco e, ainda, permitir a entidade gerenciadora obter informações relevantes para aprimoramento da gestão.<br>
   
   Principais features:<br>
     > Controle de login de usuário;<br>
@@ -23,12 +23,12 @@
 
   Linguagem:<br>
     > Python;<br>
-    > Dart.<br>
+    > JavaScript.<br>
 
   Frameworks:<br>
-    > Flutter;<br>
+    > React;<br>
     > Flask;<br>
     > Dash.<br>
 
   BD:<br>
-    > PostgreSQL;<br>
+    > PostgreSQL.<br>
