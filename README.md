@@ -32,3 +32,6 @@
 
   BD:<br>
     > PostgreSQL;<br>
+
+## Link do planehamento das sprints:
+https://closed-wildebeest-89c.notion.site/ac76b3ee527a4a74b01de11c9d4c1a2c?v=750c04a87b5e468da4b6700f3deab351
