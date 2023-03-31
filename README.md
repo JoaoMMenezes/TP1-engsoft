@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Trabalho Prático 1 - Engenharia de Software
 
 ## Escopo do sistema:
@@ -71,4 +70,4 @@ https://closed-wildebeest-89c.notion.site/ac76b3ee527a4a74b01de11c9d4c1a2c?v=750
 
   BD:<br>
     > PostgreSQL.<br>
->>>>>>> 22049ec7ead6fecda952f0b8275782e1ef28b9f1
+
