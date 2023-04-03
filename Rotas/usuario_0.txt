@@ -1,0 +1,27 @@
+##[FEAT]Login
+
+##FRONTEND
+
+1) usuário(já cadastrado) inputa a matrícula e a senha 
+2)usuário digita enter e envia uma requisição do tipo post(tem payload)
+
+##BACKEND
+3) o payload é processado
+4) Compara-se com o dado no banco de dados para validar o login
+5) Se for verdadeiro retornar os dados usario(de fichas, cardapio, nome). Se for falso retornar mensagem de erro
+
+##[FEAT]get fichas
+##FRONTEND
+1) usuário fez um requisição para atualizar o saldo
+
+##BACKEND
+2) pega o pacote e identifica o usario
+3) retorna o saldo respectivo
+
+##[FEAT]get cardápio
+##FRONTEND
+1) usuário fez um requisição para mostrar o cardapio
+
+##BACKEND
+2) scrapping do cardapio do site da Funp
+3) retorna o cardapio
