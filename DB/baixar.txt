@@ -1,5 +1,6 @@
-1) baixar:
+ver inico do video: https://www.youtube.com/watch?v=vbJ_p0Zs3Lk&t=255s&ab_channel=DataManiacs
+1) baixar developer:
 https://www.microsoft.com/en-us/sql-server/sql-server-downloads
-2) quando acabar tem opção de baixar o server mangement studio
+2) quando acabar tem opção de baixar o server mangement studio(clicar e será redirecionado para uma pagina e então baixa)
 3) ver video falando como pegar a base de dados
 https://www.youtube.com/watch?v=N6cOBg9hLIY&ab_channel=CPlus%2B
