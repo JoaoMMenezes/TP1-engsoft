@@ -1,21 +1,21 @@
-##[FEAT]Login
+##  [FEAT]Login
 
-##FRONTEND
+##  FRONTEND
 
-1) usuário(já cadastrado) inputa o nome  e a senha 
-2)usuário digita enter e envia uma requisição do tipo post(tem payload)
+1)  Usuário(já cadastrado) insere a matrícula e a senha;
+2)  Usuário digita enter e envia uma requisição do tipo post(tem payload).
 
-##BACKEND
-3) o payload é processado
-4) Compara-se com o dado no banco de dados para validar o login
-5) Se for verdadeiro retornar os dados usario(nome,passar os dados financeiros). Se for falso retornar mensagem de erro
+##  BACKEND
+3)  O payload é processado;
+4)  Compara-se com o dado no banco de dados para validar o login;
+5)  Se for verdadeiro retornar os dados usuário(de fichas, cardápio, nome). Se for falso retornar mensagem de erro.
 
-##[FEAT]get financeiro
-##FRONTEND
-1) usuário fez um requisição para pegar os dados financeiro
+##  [FEAT]get financeiro
+##  FRONTEND
+1)  Usuário fez um requisição para pegar os dados financeiro.
 
-##BACKEND
-2) pega o pacote e identifica o dio escolhido
-3) retorna as informações necessária
+##  BACKEND
+2)  Pega o pacote e identifica o dio escolhido;
+3)  Retorna as informações necessária.
 
 
