@@ -1,0 +1,12 @@
+##  Rota que contempla todos os usuários, desde aquele indicado por nível 0 a nível 2;
+##  Deve unir uso do usuário nível 0, passagem pelo usuário 1 e, ao final, dado apresentado ao nível 2.
+
+##  Sketch (Esboço)
+    #   1.  Usuário nível 0 recorre ao usuário nível 1 para fazer registro e adicionar fichas;
+    #   2.  Usuário nível 1 registra usuário nível 0 e adiciona fichas à carteira do respectivo usuário nível 0;
+    #   3.  A partir do registro e fichas adicionadas, os dados são enviados e guardados em um banco de dados;
+    #   4.  Usuário nível 2 recorre à aplicação de forma a obter as estatísticas com base no atual banco de dados.
+
+##  O presente esboço é apenas uma ideia na qual se integram todas as partes, frontend e backend, de forma a
+##  garantir que, a partir da execução da rota principal, as demais histórias de usuário possam ser implementadas
+##  agilmente.
