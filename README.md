@@ -36,3 +36,16 @@
 ## Link do planehamento das sprints:
 
 "https://closed-wildebeest-89c.notion.site/ac76b3ee527a4a74b01de11c9d4c1a2c?v=750c04a87b5e468da4b6700f3deab351"
+
+## Scrum
+
+| Backlog do Produto                                               | Backlog da Sprint                                               |
+|:------------------------------------------------------------------:|:--------------------------------------------------------------:|
+| Como usuário nível 2, gostaria de ver o fluxo de clientes em um determinado período. | Como usuário nível 0, gostaria de ver o saldo da minha conta no sistema. |
+| Como usuário nível 0, gostaria de receber um e-mail avisando que só tenho uma ficha de alimentação restante. | Como usuário nível 0, gostaria de ver o cardápio diário da comida oferecida por cada RU. |
+| Como usuário nível 2, gostaria de gerar gráficos a partir dos dados disponibilizados. | Como usuário nível 1, gostaria de fazer o cadastro de um cliente. |
+| Como usuário nível 2, gostaria de obter estatísticas sobre os dados coletados. | Como usuário nível 1, gostaria de adicionar crédito em uma conta. |
+| Como usuário nível 0, gostaria de receber um e-mail de confirmação de crédito do depósito. | Como usuário nível 2, gostaria de ver os dados financeiros diários obtidos pelos RUs. |
+| Como usuário nível 0, gostaria de poder ver comentários diários sobre a comida oferecida por cada RU. | Como usário nível 0, gostaria de almoçar com o meu saldo da conta. |
+| Como usuário nível 1, gostaria de receber, na própria plataforma, a informação de confirmação que o crédito foi depositado ou não com sucesso. | |
+| Como usuário nível 2, gostaria de ter um feedback simples (se a comida do dia estava boa ou não), daqueles que frequentaram os RUs. | |
