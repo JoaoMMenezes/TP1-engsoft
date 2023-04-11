@@ -53,29 +53,29 @@
 ## Tasks:
 
   1.  Como usuário nível 0, gostaria de ver o saldo da minha conta no sistema.
-        > Página de login: João;
-        > Acessar o botão saldo: João;
-        > POST request do frontend pra obter o saldo: Leonel;
-        > Payload ECDSA encrypt ou signature: Vinícius;
-        > Lógica no backend para responder o POST request: Bernardo.
+        > Página de login: João;<br>
+        > Acessar o botão saldo: João;<br>
+        > POST request do frontend pra obter o saldo: Leonel;<br>
+        > Payload ECDSA encrypt ou signature: Vinícius;<br>
+        > Lógica no backend para responder o POST request: Bernardo.<br>
 
   2.  Como usuário nível 1, gostaria de fazer o cadastro de um cliente.
-        > Criar uma tabela de usuários nível 0: Leonel;
-        > Criar uma interface para o usuário nível 1: João;
-        > Adicionar opção cadastrar usuário na interface do usuário nível 1: João;
-        > Obter dados digitados no cadastro do usuário nível 0: Bernardo;
-        > Alocar o usuário cadastrado no banco de dados: Bernardo.
+        > Criar uma tabela de usuários nível 0: Leonel;<br>
+        > Criar uma interface para o usuário nível 1: João;<br>
+        > Adicionar opção cadastrar usuário na interface do usuário nível 1: João;<br>
+        > Obter dados digitados no cadastro do usuário nível 0: Bernardo;<br>
+        > Alocar o usuário cadastrado no banco de dados: Bernardo.<br>
 
   3.  Como usuário nível 1, gostaria de adicionar crédito em uma conta.
-        > Adicionar a opção “Adicionar crédito” na interface do usuário nível 1: João;
-        > Atualizar estado do saldo daquele cujo foi feito o deposito: Vinícius.
+        > Adicionar a opção “Adicionar crédito” na interface do usuário nível 1: João;<br>
+        > Atualizar estado do saldo daquele cujo foi feito o deposito: Vinícius.<br>
 
   4.  Como usuário nível 2, gostaria de ver os dados financeiros diários obtidos pelos RUs.
-        > Criar interface de usuário nível 2: João;
-        > Criar uma tabela para armazenar os clientes que frequenta o RU: Leonel;
-        > Inserir cliente na tabela quando este frequentar o RU: Vinícius;
-        > Analisar os dados desta tabela e retornar informações desejadas: Leonel.
+        > Criar interface de usuário nível 2: João;<br>
+        > Criar uma tabela para armazenar os clientes que frequenta o RU: Leonel;<br>
+        > Inserir cliente na tabela quando este frequentar o RU: Vinícius;<br>
+        > Analisar os dados desta tabela e retornar informações desejadas: Leonel.<br>
 
-  5.  Como usário nível 0, gostaria de almoçar com o meu saldo da conta.<br>
-        > Criar lógica de subtrair o saldo do usuário: Vinícius;
-        > Atualizar saldo do usuário no banco de dados: Leonel.
+  5.  Como usário nível 0, gostaria de almoçar com o meu saldo da conta.
+        > Criar lógica de subtrair o saldo do usuário: Vinícius;<br>
+        > Atualizar saldo do usuário no banco de dados: Leonel.<br>
