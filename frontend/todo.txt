@@ -1,0 +1,3 @@
+FRONT TO-DO LIST:
+    - Install React
+    - Create First Page
