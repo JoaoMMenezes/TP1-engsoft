@@ -99,6 +99,13 @@ def insert_1_element(data, p_table_name, connection):
         conn.execute(command,data)
 ##########################################################################################################
 
+def update_1_element(p_table_name, connection, coluna, valor, coluna2, valor2):
+    """
+   TO FILL
+    """
+    command = "update " + p_table_name+ " set "+ str(coluna) +" = "+ str(valor) + " where " + str(coluna2) +" = " + str(valor2) 
+    with connection.begin() as conn:
+        conn.execute(command)
 
 
 """
