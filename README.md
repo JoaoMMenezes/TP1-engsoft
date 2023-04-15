@@ -55,9 +55,9 @@
   1.  Como usuário nível 0, gostaria de ver o saldo da minha conta no sistema.
         > Página de login: João;<br>
         > Acessar o botão saldo: João;<br>
-        > POST request do frontend pra obter o saldo: Leonel;<br>
+        > POST request do frontend pra obter o saldo: Bernardo;<br>
         > Payload ECDSA encrypt ou signature: Vinícius;<br>
-        > Lógica no backend para responder o POST request: Bernardo.<br>
+        > Lógica no backend para responder o POST request: Leonel.<br>
 
   2.  Como usuário nível 1, gostaria de fazer o cadastro de um cliente.
         > Criar uma tabela de usuários nível 0: Leonel;<br>

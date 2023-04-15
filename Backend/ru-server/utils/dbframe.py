@@ -36,7 +36,7 @@ def SQL2df(command, connection, option = 1):
            outpout = conn.execute(sa.text(command)).fetchall()
     return outpout
 ##########################################################################################################
-def get_columns_name(table_name, connection, option = 1):
+def get_columns_name(table, connection, option = 1):
     """
     Esta função retorna o nome das culunas de uma tabela
     
@@ -46,7 +46,7 @@ def get_columns_name(table_name, connection, option = 1):
         connection (str): connection point use connect() function
         option (int): 1 retorna um dataframe e 0 retorna uma lista
     """
-    command = 'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =\'' + table_name +'\''
+    command = 'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =\'' + table +'\''
     with connection.begin() as conn:
         if option:
             outpout = pd.read_sql_query(sa.text(command), conn)
@@ -68,9 +68,9 @@ def df2SQL(df, p_table_name, connection):
     inter = "?,"*col
     with connection.begin() as conn:
         for index, row in df.iterrows():
-            conn.execute("insert"+p_table_name+ " values("+inter[:-1]+")", row)
+            conn.execute("insert "+p_table_name+ " values("+inter[:-1]+")", row)
 ##########################################################################################################
-def get_last_id(p_table_name, connection):
+def get_last_id(table_name, connection):
     """
     Esta função retorna o ultimo id(chave) da tabela
     
@@ -79,11 +79,11 @@ def get_last_id(p_table_name, connection):
         p_table_name (str): path of table EX -> dbo.Table_1
         connection (str): connection point use connect() function
     """
-    command = "SELECT id FROM "+p_table_name +" WHERE id = (SELECT MAX(id) FROM "+p_table_name+ " )"
+    command = "SELECT id FROM "+table_name +" WHERE id = (SELECT MAX(id) FROM "+table_name+ " )"
     with connection.begin() as conn:
           return conn.execute(sa.text(command)).fetchall()[0][0]
 ##########################################################################################################
-def insert_1_element(data, p_table_name, connection):
+def insert_1_element(data, table_name, connection):
     """
     Esta função retorna o ultimo id(chave) da tabela
     
@@ -94,12 +94,12 @@ def insert_1_element(data, p_table_name, connection):
         connection (str): connection point use connect() function
     """
     inter = "?,"*len(data)
-    command = "insert "+p_table_name+ " values("+inter[:-1]+")"
+    command = "insert "+table_name+ " values("+inter[:-1]+")"
     with connection.begin() as conn:
         conn.execute(command,data)
 ##########################################################################################################
 
-def update_1_element(p_table_name, connection, coluna, valor, coluna2, valor2):
+def update_1_element(table_name, connection, coluna, valor, coluna2, valor2):
     """
    Esta função atualiza o valor de um elemento da tabela
     
@@ -113,7 +113,7 @@ def update_1_element(p_table_name, connection, coluna, valor, coluna2, valor2):
         valor2 (str): value in coluna to refer the value to set Ex -> "10000000"
         
     """
-    command = "update " + p_table_name+ " set "+ str(coluna) +" = "+ str(valor) + " where " + str(coluna2) +" = " + str(valor2) 
+    command = "update " + table_name+ " set "+ str(coluna) +" = "+ str(valor) + " where " + str(coluna2) +" = " + str(valor2) 
     with connection.begin() as conn:
         conn.execute(command)
 
