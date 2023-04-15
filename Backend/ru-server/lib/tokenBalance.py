@@ -15,10 +15,10 @@ from dbacess import ServerAcess
 
 
 class GetToken(): 
-    def __init__(self, matricula:int, acesso:ServerAcess):
+    def __init__(self, matricula:int, acesso:ServerAcess, ficha = 0):
         self.matricula = matricula
         self.acesso = acesso
-        self.ficha = 0
+        self.ficha = ficha
 
     def getToken(self):
         comando = "select Fichas from dbo.Usuario0 where Matricula = " + str(self.matricula) 
@@ -30,5 +30,4 @@ class GetToken():
 pegar_ficha = GetToken(1000000000, tes)
 fichas = pegar_ficha.getToken()
 print(fichas)"""
-
 
