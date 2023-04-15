@@ -101,7 +101,17 @@ def insert_1_element(data, p_table_name, connection):
 
 def update_1_element(p_table_name, connection, coluna, valor, coluna2, valor2):
     """
-   TO FILL
+   Esta função atualiza o valor de um elemento da tabela
+    
+    Parameters
+    ----------
+        p_table_name (str): path of table EX -> dbo.Table_1
+        connection (str): connection point use connect() function
+        coluna (str): coluna to set the value EX -> "Fichas"
+        valor (str): new value to set Ex -> "8"
+        coluna2 (str): coluna to refer the value to set EX -> "Matricula"
+        valor2 (str): value in coluna to refer the value to set Ex -> "10000000"
+        
     """
     command = "update " + p_table_name+ " set "+ str(coluna) +" = "+ str(valor) + " where " + str(coluna2) +" = " + str(valor2) 
     with connection.begin() as conn:
