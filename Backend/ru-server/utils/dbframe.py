@@ -70,19 +70,6 @@ def df2SQL(df, p_table_name, connection):
         for index, row in df.iterrows():
             conn.execute("insert "+p_table_name+ " values("+inter[:-1]+")", row)
 ##########################################################################################################
-def get_last_id(table_name, connection):
-    """
-    Esta função retorna o ultimo id(chave) da tabela
-    
-    Parameters
-    ----------
-        p_table_name (str): path of table EX -> dbo.Table_1
-        connection (str): connection point use connect() function
-    """
-    command = "SELECT id FROM "+table_name +" WHERE id = (SELECT MAX(id) FROM "+table_name+ " )"
-    with connection.begin() as conn:
-          return conn.execute(sa.text(command)).fetchall()[0][0]
-##########################################################################################################
 def insert_1_element(data, table_name, connection):
     """
     Esta função retorna o ultimo id(chave) da tabela
@@ -117,6 +104,49 @@ def update_1_element(table_name, connection, coluna, valor, coluna2, valor2):
     with connection.begin() as conn:
         conn.execute(command)
 
+################################
+# RELATIONAL ALGEBRA FUNCTIONS #
+################################
+
+def SQL_SELECT(table, condition, connection, option = 1):
+    """
+    Função para o operador de seleção (SELECT)
+    
+    Parameters
+    ----------
+        table (str): the name of the wanted table to be worked on, e.g. ("EMPLOYEE")
+        condition (str): the condition which must be satisfied in query language, e.g. ("Dno = 5 AND Salary > 25000")
+        connection (str): connection point use connect() function
+        option (int): 1 retorna um dataframe e 0 retorna uma lista
+    """
+    command = 'SELECT * FROM ' + table + ' WHERE ' + condition +';'
+    with connection.begin() as conn:
+        if option:
+            outpout = pd.read_sql_query(sa.text(command), conn)
+        else:
+           outpout = conn.execute(sa.text(command)).fetchall()
+    return outpout
+##########################################################################################################
+def SQL_PROJECT(table, column_name, connection, case = "DISTINCT", option = 1):
+    """
+    Função para o operador de projeção (PROJECT)
+    
+    Parameters
+    ----------
+        table (str): the name of the wanted table to be worked on, e.g. ("EMPLOYEE")
+        column_name (str): column names in which you want the projection, e.g. ("Sex, Salary")
+        case (str): DISTINCT must be defined if duplicateds are NOT WANTED, otherwise ' ' must be set, e.g. ('') or let default
+        connection (str): connection point use connect() function
+        option (int): 1 retorna um dataframe e 0 retorna uma lista
+    """
+    command = 'SELECT ' + case + ' ' + column_name + ' FROM ' + table +';'
+    with connection.begin() as conn:
+        if option:
+            outpout = pd.read_sql_query(sa.text(command), conn)
+        else:
+           outpout = conn.execute(sa.text(command)).fetchall()
+    return outpout
+##########################################################################################################
 
 """
 servidor = "LAPTOP-4BELV735"
