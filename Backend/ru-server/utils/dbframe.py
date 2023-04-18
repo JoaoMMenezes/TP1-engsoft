@@ -147,7 +147,37 @@ def SQL_PROJECT(table, column_name, connection, case = "DISTINCT", option = 1):
            outpout = conn.execute(sa.text(command)).fetchall()
     return outpout
 ##########################################################################################################
+def SQL_RENAME(table, new_table_name, actual_column_names, new_column_names, connection, option = 1):
+    """
+    Função para o operador de renomeação (RENAME)
+    
+    Parameters
+    ----------
+        table (str): the name of the wanted table to be worked on, e.g. ("EMPLOYEE")
+        new_table_name (str) (array): default is set to '' since it is optional since the primarly objective is change the column names
+        actual_column_names (str) (array): the columns names from the table which are supposed to be changed
+        new_column_names (str): the new column names that must be set in the order to match its respective actual_column_name
+        connection (str): connection point use connect() function
+        option (int): 1 retorna um dataframe e 0 retorna uma lista
+    """
+    aux_command = []
+    for x in range(len(actual_column_names)):
+        aux_command.append(actual_column_names[x] + ' AS ' + new_column_names[x] + ', ')
 
+    aux_command = ''.join(aux_command)
+    aux_command = aux_command[:-2]
+    if len(new_table_name) == 0:
+        command = 'SELECT ' + aux_command + ' FROM ' + table +';'
+    else:
+        command = 'SELECT ' + aux_command + ' FROM ' + table + ' AS ' + new_table_name +';'
+  
+    with connection.begin() as conn:
+        if option:
+            outpout = pd.read_sql_query(sa.text(command), conn)
+        else:
+           outpout = conn.execute(sa.text(command)).fetchall()
+    return outpout
+##########################################################################################################
 """
 servidor = "LAPTOP-4BELV735"
 banco_de_dados = "teste"
