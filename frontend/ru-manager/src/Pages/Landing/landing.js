@@ -2,30 +2,33 @@ import React, { useState } from "react";
 import './landing.css'
 
 function Landing() {
-    const [email, setEmail] = useState('');
+  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
+    console.log('ID:', id);
     console.log('Password:', password);
   };
 
   return (
     <div>
-      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
         <label>
-          Email:
+          
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            
+            required
+            type="number"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
           />
         </label>
         <label>
           Password:
           <input
+            required
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
