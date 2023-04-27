@@ -25,7 +25,7 @@ class HaveLunch():
 
 
 
-tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
-pegar = tb.GetToken(1000000000, tes)
-comer = HaveLunch(1000000000, pegar.getToken(),tes )
-comer.haveLunch()
+#tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
+#pegar = tb.GetToken(1000000000, tes)
+#comer = HaveLunch(1000000000, pegar.getToken(),tes )
+#comer.haveLunch()
