@@ -2,7 +2,7 @@ import lib.signUser0 as siu
 import json
 
 """
-entrada: {"Matricula":2019070094, "Senha":123456, "Nome":"Leonel", "ValorFicha":5.6, "Email":"nelsim@gmail.com"} 
+entrada: {"Matricula":2019070094,"Senha":123456, "Nome":"Leonel","ValorFicha":5.6,"Email":"nelsim@gmail.com"} 
 
 saida:  "Cadastrado!"
 

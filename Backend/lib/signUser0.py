@@ -20,7 +20,7 @@ class User:
                 (self.valorFicha == 5.6)
                 ) , "Not valid TokenValue for User0"
         vetor = [self.matricula, self.senha, self.nome, self.ficha, self.valorFicha, self.email]
-        insert_1_element(vetor, "dboUsuario0", self.acesso)
+        insert_1_element(vetor, "dbo.Usuario0", self.acesso)
 
 
 """
