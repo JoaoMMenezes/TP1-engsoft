@@ -7,15 +7,10 @@ entrada: {"Matricula":300000000}
 saida:  "ok"
 
 """
-"""def parselogar(raw_dados):
-    dados = json.loads(raw_dados)
-    senha = dados["Senha"]
-    matricula = dados["Matricula"]
-    return matricula, senha"""
-def parseComer(raw_dados):
+def parseBalance(raw_dados):
     dados = json.loads(raw_dados)
     return dados["Matricula"]
 
-def comer(acesso, matricula) -> None:
+def balance(acesso, matricula) -> None:
     return tb.GetToken(matricula, acesso ).getToken()
 

@@ -2,12 +2,13 @@ from flask import Flask, jsonify, request
 #intaciar banco de dados
 from utils.dbacess import ServerAcess
 #
+from src.Login.logar import parseLogar, identificarUser, buscarUser, conferirSenha
+
 from src.user0.comer import comer, parseComer
+from src.user0.getbalance import balance, parseBalance
+
 from src.user1.signin import signIn, parseSignIn
 from src.user1.depositoken import deposit, parseDeposit
-
-
-from src.Login.logar import parseLogar, identificarUser, buscarUser, conferirSenha
 
 
 app = Flask(__name__)
