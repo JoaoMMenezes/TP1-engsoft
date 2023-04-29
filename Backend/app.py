@@ -9,10 +9,6 @@ from src.user1.depositoken import deposit, parseDeposit
 
 from src.Login.logar import parseLogar, identificarUser, buscarUser, conferirSenha
 
-from src.user1.signin import signIn, parseSignIn
-from src.user1.depositoken import deposit, parseDeposit
-
-
 
 app = Flask(__name__)
 

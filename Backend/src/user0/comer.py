@@ -2,7 +2,7 @@ import lib.haveLunch as hv
 import lib.tokenBalance as tb
 import json
 """
-entrada: {"Matricula":3019070094}
+entrada: {"Matricula":300000000}
 
 saida:  "ok"
 
