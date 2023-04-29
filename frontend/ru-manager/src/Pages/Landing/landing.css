@@ -1,0 +1,25 @@
+div {
+  height: 90vh;
+  background-color: rebeccapurple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+input[type="number"],
+input[type="password"] {
+    margin-bottom: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
