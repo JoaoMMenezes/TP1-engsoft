@@ -23,7 +23,7 @@ class GetToken():
     def getToken(self):
         comando = "select Fichas from dbo.Usuario0 where Matricula = " + str(self.matricula) 
         self.ficha = SQL2df(comando, self.acesso.connection, 0)[0][0]
-        return int(self.ficha)
+        return self.ficha
 
 
 """tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
