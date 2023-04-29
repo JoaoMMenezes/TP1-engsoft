@@ -50,6 +50,16 @@ def haveLunch():
         print("não conseguiu comer")
     return jsonify({"teste": "executado"})
 
+@app.route("/user0/getbalance", methods = ["POST"])
+def getBalance():
+    try:
+        raw_dados  = request.data.decode('utf-8')
+        matricula = parseBalance(raw_dados)
+        saldo = balance(ACESSO, matricula)
+    except ValueError:
+        print("Falha")
+    return jsonify({"Saldo": saldo})
+
 @app.route("/user1/signin", methods = ["POST"])
 def rotaSignIn():
     try:
