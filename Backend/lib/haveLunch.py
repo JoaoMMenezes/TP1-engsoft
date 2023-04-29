@@ -3,7 +3,6 @@ sys.path.insert(0, r'.\TP1-engsoft\Backend\utils')
 from dbframe import update_1_element, insert_1_element
 from dbacess import ServerAcess
 from datetime import datetime
-import tokenBalance as tb
 
 class HaveLunch():
     def __init__(self, matricula: int, ficha: int, acesso:ServerAcess):

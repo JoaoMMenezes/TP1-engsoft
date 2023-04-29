@@ -1,6 +1,6 @@
 #importar bibliotecas
 import sys
-sys.path.insert(0, r'.\TP1-engsoft\Backend\ru-server\utils')
+sys.path.insert(0, r'.\TP1-engsoft\Backend\utils')
 from dbframe import SQL2df
 from dbacess import ServerAcess
 
@@ -23,7 +23,7 @@ class GetToken():
     def getToken(self):
         comando = "select Fichas from dbo.Usuario0 where Matricula = " + str(self.matricula) 
         self.ficha = SQL2df(comando, self.acesso.connection, 0)[0][0]
-        return self.ficha
+        return int(self.ficha)
 
 
 """tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
