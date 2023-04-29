@@ -3,6 +3,9 @@ from flask import Flask, jsonify, request
 from utils.dbacess import ServerAcess
 #
 from src.user0.comer import comer, parseComer
+from src.user0.signin import signIn, parseSignIn
+from src.user0.depositoken import deposit, parseDeposit
+
 
 from src.Login.logar import parseLogar, identificarUser, buscarUser, conferirSenha
 
