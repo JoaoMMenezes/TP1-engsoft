@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 from utils.dbacess import ServerAcess
 #
 from src.user0.comer import comer, parseComer
-from src.login.logar import parseLogar, identificarUser, buscarUser
+from src.Login.logar import parseLogar, identificarUser, buscarUser, conferirSenha
 
 
 app = Flask(__name__)
@@ -16,11 +16,25 @@ def Home():
 
 @app.route("/login", methods = ["POST"])
 def login():
+    #definir para não entrar como default
+    sucesso = 0
+    #pegar o post
     raw_dados  = request.data.decode('utf-8')
-    matricula, senha_inserida = parseLogar(raw_dados)
+    #pegar os dados do db
+    try:
+        matricula, senhaInserida = parseLogar(raw_dados)
+    except:
+        return jsonify({"Tipo":0, "Sucesso":sucesso, "Nome":"nada"})
+    
     tipo = identificarUser(matricula)
-    nome, fichas= buscarUser(ACESSO, tipo, matricula)
-    return jsonify({"teste": "oi"})
+
+    try:
+        senhaReal, nome = buscarUser(ACESSO.connection, tipo, matricula)
+    except:
+        return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Nome":"nada"})
+    sucesso = conferirSenha(senhaInserida, senhaReal)
+    
+    return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Nome":nome})
 
 @app.route("/user0/havelunch", methods = ["POST"])
 def haveLunch():
