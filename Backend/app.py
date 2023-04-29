@@ -4,6 +4,8 @@ from utils.dbacess import ServerAcess
 #
 from src.user0.comer import comer, parseComer
 from src.user0.signin import signIn, parseSignIn
+from src.user0.depositoken import deposit, parseDeposit
+
 
 app = Flask(__name__)
 
@@ -32,6 +34,17 @@ def rotaSignIn():
     except ValueError:
         print("Nao foi possivel cadastrar o usuario")
     return jsonify({"teste": "Usuário Cadastrado!"})
+
+@app.route("/user0/deposittoken", methods = ["POST"])
+def depositToken():
+    try:
+        raw_dados  = request.data.decode('utf-8')
+        matricula, amount = parseDeposit(raw_dados)
+        deposit(matricula, ACESSO, amount)
+    except ValueError:
+        print("nao foi possivel depositar")
+    return jsonify({"Saldo depositado!"})
+
 
 
 
