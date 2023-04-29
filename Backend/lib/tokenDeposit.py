@@ -1,10 +1,7 @@
-import sys
-sys.path.insert(0, r'.\TP1-engsoft\Backend\utils')
-from dbframe import update_1_element
-from dbacess import ServerAcess
+from utils.dbframe import update_1_element
 
 class DepositToken():
-    def __init__(self, matricula: int, ficha: int, acesso:ServerAcess):
+    def __init__(self, matricula: int, ficha: int, acesso):
         self.matricula = matricula
         self.acesso = acesso
         self.ficha = ficha

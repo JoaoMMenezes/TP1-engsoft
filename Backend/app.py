@@ -1,33 +1,25 @@
 from flask import Flask, jsonify, request
-import json
-import re
-
-import lib.haveLunch as hv
-import lib.tokenBalance as tb
+#intaciar banco de dados
 from utils.dbacess import ServerAcess
+#
+from src.user0.comer import comer, parseComer
 
 app = Flask(__name__)
+
+ACESSO = ServerAcess("LAPTOP-4BELV735", "credito_ru")
 
 @app.route("/", methods = ["GET"])
 def login():
     return jsonify({"teste": "oi"})
 
-@app.route("/havelunch", methods = ["POST"])
+@app.route("/user0/havelunch", methods = ["POST"])
 def haveLunch():
     try:
         raw_dados  = request.data.decode('utf-8')
-        print(raw_dados)
-        matricula_regex = r'"Matricula":\s*(\d+)'
-        match = re.search(matricula_regex, raw_dados)
-        matricula = int(match.group(1))
-        print(matricula)
-        acesso = ServerAcess("LAPTOP-4BELV735", "credito_ru")
-        fichas = tb.GetToken(matricula, acesso ).getToken()
-        print(fichas)
-        hv.HaveLunch(300000000, fichas,acesso).haveLunch()
-
+        matricula = parseComer(raw_dados)
+        comer(ACESSO, matricula)
     except ValueError:
-        print("erro")
+        print("não conseguiu comer")
     return jsonify({"teste": "executado"})
 
 

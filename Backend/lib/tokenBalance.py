@@ -1,8 +1,7 @@
 #importar bibliotecas
-import sys
-sys.path.insert(0, r'.\TP1-engsoft\Backend\utils')
-from dbframe import SQL2df
-from dbacess import ServerAcess
+
+from utils.dbframe import SQL2df
+#from dbacess import ServerAcess
 
 """class User01:
     def __init__(self, matricula:int , senha:int, nome:str ,ficha:int, valorFicha:float , email=None ) -> None:
@@ -15,7 +14,7 @@ from dbacess import ServerAcess
 
 
 class GetToken(): 
-    def __init__(self, matricula:int, acesso:ServerAcess, ficha = 0):
+    def __init__(self, matricula:int, acesso, ficha = 0):
         self.matricula = matricula
         self.acesso = acesso
         self.ficha = ficha

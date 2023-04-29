@@ -1,6 +1,4 @@
-import sys
-sys.path.insert(0, r'.\TP1-engsoft\Backend\ru-server\utils')
-from dbframe import connect
+from utils.dbframe import connect
 
 class ServerAcess():
     def __init__(self, servidor:str, banco_de_dados:str):
