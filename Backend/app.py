@@ -12,7 +12,7 @@ app = Flask(__name__)
 ACESSO = ServerAcess("LAPTOP-4BELV735", "credito_ru")
 
 @app.route("/", methods = ["GET"])
-def login():
+def HelloPage():
     return jsonify({"teste": "oi"})
 
 @app.route("/user0/havelunch", methods = ["POST"])
@@ -30,7 +30,7 @@ def rotaSignIn():
     try:
         raw_dados  = request.data.decode('utf-8')
         matricula, senha, nome, valorFicha, email = parseSignIn(raw_dados)
-        signIn(ACESSO.connection, matricula, senha, nome, valorFicha, email)
+        signIn(ACESSO, matricula, senha, nome, valorFicha, email)
     except ValueError:
         print("Nao foi possivel cadastrar o usuario")
     return jsonify({"teste": "Usuário Cadastrado!"})
