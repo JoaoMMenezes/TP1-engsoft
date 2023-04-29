@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, r'.\TP1-engsoft\Backend\ru-server\utils')
+sys.path.insert(0, r'.\TP1-engsoft\Backend\utils')
 from dbframe import update_1_element, insert_1_element
 from dbacess import ServerAcess
 from datetime import datetime
@@ -25,7 +25,7 @@ class HaveLunch():
 
 
 
-tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
-pegar = tb.GetToken(1000000000, tes)
-comer = HaveLunch(1000000000, pegar.getToken(),tes )
-comer.haveLunch()
+"""tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
+pegar = tb.GetToken(300000000, tes)
+comer = HaveLunch(300000000, pegar.getToken(),tes )
+comer.haveLunch()"""
