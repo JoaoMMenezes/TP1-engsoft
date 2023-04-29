@@ -1,12 +1,8 @@
-import sys
-sys.path.insert(0, r'.\TP1-engsoft\Backend\ru-server\utils')
-from dbframe import update_1_element, insert_1_element
-from dbacess import ServerAcess
+from utils.dbframe import update_1_element, insert_1_element
 from datetime import datetime
-import tokenBalance as tb
 
 class HaveLunch():
-    def __init__(self, matricula: int, ficha: int, acesso:ServerAcess):
+    def __init__(self, matricula: int, ficha: int, acesso):
         self.matricula = matricula
         self.acesso = acesso
         self.ficha = ficha
@@ -25,7 +21,7 @@ class HaveLunch():
 
 
 
-tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
-pegar = tb.GetToken(1000000000, tes)
-comer = HaveLunch(1000000000, pegar.getToken(),tes )
-comer.haveLunch()
+"""tes = ServerAcess("LAPTOP-4BELV735", "credito_ru")
+pegar = tb.GetToken(300000000, tes)
+comer = HaveLunch(300000000, pegar.getToken(),tes )
+comer.haveLunch()"""
