@@ -1,5 +1,5 @@
 import pandas as pd
-from utils.dbframe import SQL2df, connect
+from utils.dbframe import SQL2df
 import utils.dbacess as dbacess
 from datetime import datetime 
 
@@ -19,5 +19,5 @@ user = SQL2df("select Matricula, ValorFicha from dbo.Usuario0", conexao.connecti
 print(user.head())
 print(user.shape)
 
-final = pd.merge(dados, user, how="outer")
+final = dados.merge(user)
 print(final.head)
