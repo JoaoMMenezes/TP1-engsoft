@@ -41,7 +41,7 @@ def login():
         return jsonify({"Tipo":tipo, "Sucesso":False, "Nome":"nada"})
     sucesso = conferirSenha(senhaInserida, senhaReal)
     
-    return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Nome":nome})
+    return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Matricula":matricula, "Nome":nome})
 
 ################################################################################################
 @app.route("/user0/havelunch", methods = ["POST"])
