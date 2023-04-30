@@ -21,11 +21,17 @@ class GetFinance():
                 customer = pd.read_sql_query(sa.text(command), conn)
             else:
                 customer = conn.execute(sa.text(command)).fetchall()
-        customer['DataVisita'] = customer['DataVisita'].apply(lambda x: x.strftime('%Y-%m-%d'))  #.dt.strftime('%d/%m/%Y')
+        customer['DataVisita'] = pd.to_datetime( customer['DataVisita'].dt.strftime('%d/%m/%Y'))
         user = SQL2df("SELECT Matricula, ValorFicha FROM Usuario0", self.acesso)
+        user.rename(columns={"ValorFicha": "Receita"}, inplace =True)
         aux = pd.merge(customer, user, on="Matricula")
-        output_filtered = aux.groupby(['DataVisita'])['ValorFicha'].sum().reset_index()
-        output_chart = px.line(output_filtered, x='DataVisita', y='ValorFicha', title='ValorFicha por DataVisita')
-       # output_html = plotly.offline.plot(output_chart, include_plotlyjs=False, output_type='div', filename=r'.\Backend\finance.html')
-        output_html = plotly.offline.plot(output_chart, filename='.\TP1-engsoft\Backend\\templates\\finance.html', auto_open= False)
+        output_filtered = aux.groupby(['DataVisita']).sum().reset_index()
+        output_chart = px.bar(output_filtered, x='DataVisita', y="Receita", title='Receita financeira')
+        output_chart.update_layout(
+        xaxis_title='Data',
+        yaxis_title='Receita',
+        paper_bgcolor='rgba(0,0,0,0)',
+        xaxis_tickformat='%d/%m/%Y'
+        )
+        output_html = plotly.offline.plot(output_chart, filename='.\TP1-engsoft\Backend\\templates\\finance.html', auto_open= True)
         return output_html
