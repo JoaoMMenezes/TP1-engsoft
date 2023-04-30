@@ -5,9 +5,9 @@
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  height: 100vh;
+  height: 95vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #f8f9fd;
+  background-color: #202124;
 }
 
 input[type="text"],
@@ -37,7 +37,7 @@ input[type="submit"]:hover {
 
 .login-form {
   background-color: white;
-  padding: 2rem;
+  padding: 3rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
