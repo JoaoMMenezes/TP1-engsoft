@@ -1,15 +1,3 @@
-.app {
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  height: 95vh;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #202124;
-}
-
 input[type="text"],
 input[type="password"] {
   height: 25px;

@@ -18,7 +18,7 @@ function Landing() {
     var { uname, pass } = document.forms[0];
 
     // Find user login info
-    api.get("/login", {
+    api.post("/login", {
       Matricula: uname,
       Senha: pass,
     })
