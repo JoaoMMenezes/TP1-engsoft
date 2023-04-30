@@ -15,32 +15,35 @@ app = Flask(__name__)
 
 ACESSO = ServerAcess("LAPTOP-4BELV735", "credito_ru")
 
+################################################################################################
 @app.route("/", methods = ["GET"])
 def HelloPage():
     return jsonify({"teste": "oi"})
 
+################################################################################################
+#passar matricula
 @app.route("/login", methods = ["POST"])
 def login():
     #definir para não entrar como default
-    sucesso = 0
     #pegar o post
     raw_dados  = request.data.decode('utf-8')
     #pegar os dados do db
     try:
         matricula, senhaInserida = parseLogar(raw_dados)
     except:
-        return jsonify({"Tipo":0, "Sucesso":sucesso, "Nome":"nada"})
+        return jsonify({"Tipo":0, "Sucesso":False, "Nome":"nada"})
     
     tipo = identificarUser(matricula)
 
     try:
         senhaReal, nome = buscarUser(ACESSO.connection, tipo, matricula)
     except:
-        return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Nome":"nada"})
+        return jsonify({"Tipo":tipo, "Sucesso":False, "Nome":"nada"})
     sucesso = conferirSenha(senhaInserida, senhaReal)
     
     return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Nome":nome})
 
+################################################################################################
 @app.route("/user0/havelunch", methods = ["POST"])
 def haveLunch():
     try:
@@ -48,9 +51,10 @@ def haveLunch():
         matricula = parseComer(raw_dados)
         comer(ACESSO, matricula)
     except ValueError:
-        print("não conseguiu comer")
-    return jsonify({"teste": "executado"})
+        return jsonify({"Mensagem":False})
+    return jsonify({"Mensagem": True})
 
+################################################################################################
 @app.route("/user0/getbalance", methods = ["POST"])
 def getBalance():
     try:
@@ -58,9 +62,10 @@ def getBalance():
         matricula = parseBalance(raw_dados)
         saldo = balance(ACESSO, matricula)
     except ValueError:
-        print("Falha")
+       return jsonify({"Saldo": -1})
     return jsonify({"Saldo": saldo})
 
+################################################################################################
 @app.route("/user1/signin", methods = ["POST"])
 def rotaSignIn():
     try:
@@ -68,9 +73,10 @@ def rotaSignIn():
         matricula, senha, nome, valorFicha, email = parseSignIn(raw_dados)
         signIn(ACESSO, matricula, senha, nome, valorFicha, email)
     except ValueError:
-        print("Nao foi possivel cadastrar o usuario")
-    return jsonify({"teste": "Usuário Cadastrado!"})
+        return jsonify({"Mensagem":False})
+    return jsonify({"Mensagem": True})
 
+################################################################################################
 @app.route("/user1/deposittoken", methods = ["POST"])
 def depositToken():
     try:
@@ -78,8 +84,8 @@ def depositToken():
         matricula, amount = parseDeposit(raw_dados)
         deposit(matricula, ACESSO, amount)
     except ValueError:
-        print("nao foi possivel depositar")
-    return jsonify({"Mensagem":"Saldo depositado!"})
+        return jsonify({"Mensagem":False})
+    return jsonify({"Mensagem":True})
 
 
 

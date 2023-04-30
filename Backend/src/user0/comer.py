@@ -4,7 +4,7 @@ import json
 """
 entrada: {"Matricula":300000000}
 
-saida:  "ok"
+saida:  {"Mensagem": True}
 
 """
 """def parselogar(raw_dados):
