@@ -9,6 +9,7 @@ from src.user0.getbalance import balance, parseBalance
 
 from src.user1.signin import signIn, parseSignIn
 from src.user1.depositoken import deposit, parseDeposit
+from src.user2.FinancialData import parseFinance, financial
 
 
 app = Flask(__name__)
@@ -86,8 +87,16 @@ def depositToken():
     except ValueError:
         return jsonify({"Mensagem":False})
     return jsonify({"Mensagem":True})
-
-
+################################################################################################
+@app.route("/user2/getfinance", methods = ["POST"])
+def getFinancial():
+    try:
+        raw_dados  = request.data.decode('utf-8')
+        data_inicio, data_final = parseFinance(raw_dados)
+        arquivo = financial(data_inicio, data_final, ACESSO.connection, option = 1)
+    except ValueError:
+        return jsonify({"Mensagem":"grafico não foi criado"})
+    return arquivo
 
 
 if __name__ == "__main__":
