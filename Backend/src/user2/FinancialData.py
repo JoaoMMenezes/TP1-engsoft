@@ -12,3 +12,5 @@ def parseFinance(raw_dados):
 
 def financial(data_begin, data_end, acesso, option = 1):
     return tb.GetFinance(data_begin, data_end, acesso, option = option ).getFinance()
+
+

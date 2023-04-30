@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 #intaciar banco de dados
 from utils.dbacess import ServerAcess
@@ -100,7 +100,7 @@ def getFinancial():
         arquivo = financial(data_inicio, data_final, ACESSO.connection, option = 1)
     except ValueError:
         return jsonify({"Mensagem":"grafico não foi criado"})
-    return arquivo
+    return render_template( arquivo)
 
 
 if __name__ == "__main__":

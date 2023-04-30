@@ -27,5 +27,5 @@ class GetFinance():
         output_filtered = aux.groupby(['DataVisita'])['ValorFicha'].sum().reset_index()
         output_chart = px.line(output_filtered, x='DataVisita', y='ValorFicha', title='ValorFicha por DataVisita')
        # output_html = plotly.offline.plot(output_chart, include_plotlyjs=False, output_type='div', filename=r'.\Backend\finance.html')
-        output_html = plotly.offline.plot(output_chart, filename=r'.\Backend\finance.html')
+        output_html = plotly.offline.plot(output_chart, filename='.\TP1-engsoft\Backend\\templates\\finance.html', auto_open= False)
         return output_html
