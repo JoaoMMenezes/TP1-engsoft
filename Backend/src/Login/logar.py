@@ -13,7 +13,7 @@ Suecesso False-> ruim  True-> certo
 """
 def parseLogar(raw_dados):
     dados = json.loads(raw_dados)
-    return dados["Matricula"], dados["Senha"]
+    return dados["Matricula"], int(dados["Senha"])
 
 def identificarUser(matricula):
     tipo = 0

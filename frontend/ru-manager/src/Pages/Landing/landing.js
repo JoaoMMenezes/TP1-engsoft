@@ -16,14 +16,15 @@ function Landing() {
     //Prevent page reload
     event.preventDefault();  
     var { uname, pass } = document.forms[0];
+    console.log(uname,pass)
 
     // Find user login info
-    api.get("/login", {
-      Matricula: uname,
-      Senha: pass,
+    api.post("/login", {
+      Matricula: uname.value,
+      Senha: pass.value
     })
     .then(
-      response => console.log(response.data)
+      response => console.log(response)
     )
     .catch(
       error => console.log(error)
@@ -60,7 +61,7 @@ function Landing() {
         </div>
         <div className="input-container">
           <label>Senha </label>
-          <input type="password" name="pass" required />
+          <input type="password" pattern="[0-9]*" inputmode="numeric" name="pass" required />
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">

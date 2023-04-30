@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 #intaciar banco de dados
 from utils.dbacess import ServerAcess
 #
@@ -12,7 +13,10 @@ from src.user1.depositoken import deposit, parseDeposit
 from src.user2.FinancialData import parseFinance, financial
 
 
+
+
 app = Flask(__name__)
+CORS(app)
 
 ACESSO = ServerAcess("LAPTOP-4BELV735", "credito_ru")
 
