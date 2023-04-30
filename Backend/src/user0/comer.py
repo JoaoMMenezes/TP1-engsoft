@@ -1,18 +1,20 @@
 import lib.haveLunch as hv
 import lib.tokenBalance as tb
-import re
-
+import json
 """
-entrada: {"Matricula": 300000000}
+entrada: {"Matricula":300000000}
 
 saida:  "ok"
 
 """
+"""def parselogar(raw_dados):
+    dados = json.loads(raw_dados)
+    senha = dados["Senha"]
+    matricula = dados["Matricula"]
+    return matricula, senha"""
 def parseComer(raw_dados):
-    matricula_regex = r'"Matricula":\s*(\d+)'
-    match = re.search(matricula_regex, raw_dados)
-    matricula = int(match.group(1))
-    return matricula
+    dados = json.loads(raw_dados)
+    return dados["Matricula"]
 
 def comer(acesso, matricula) -> None:
     fichas = tb.GetToken(matricula, acesso ).getToken()
