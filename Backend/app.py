@@ -31,17 +31,17 @@ def login():
     try:
         matricula, senhaInserida = parseLogar(raw_dados)
     except:
-        return jsonify({"Tipo":0, "Sucesso":False, "Nome":"nada"})
+        return jsonify({"Tipo":0, "Sucesso":False, "Matricula":matricula,"Nome":"nada"})
     
     tipo = identificarUser(matricula)
 
     try:
         senhaReal, nome = buscarUser(ACESSO.connection, tipo, matricula)
     except:
-        return jsonify({"Tipo":tipo, "Sucesso":False, "Nome":"nada"})
+        return jsonify({"Tipo":tipo, "Sucesso":False, "Matricula":matricula,"Nome":"nada"})
     sucesso = conferirSenha(senhaInserida, senhaReal)
     
-    return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Nome":nome})
+    return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Matricula":matricula, "Nome":nome})
 
 ################################################################################################
 @app.route("/user0/havelunch", methods = ["POST"])
