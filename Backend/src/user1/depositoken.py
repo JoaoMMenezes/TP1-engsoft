@@ -4,7 +4,7 @@ import json
 """
 entrada: {"Matricula":3019070094,"Amount":50}
 
-saida:  "Depósito com sucesso!"
+saida:  {"Mensagem":True}
 
 """
 def parseDeposit(raw_dados):
