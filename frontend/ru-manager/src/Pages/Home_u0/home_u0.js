@@ -22,8 +22,10 @@ function HomeU0() {
     return(
         <div className="app">
             <div className="homeu0">
-                <h2><HiUserCircle className="icon"/>Nome User </h2>
-                <h2><HiCurrencyDollar className="icon"/> {saldo} </h2>
+                <div className="divrow">
+                    <h2><HiUserCircle className="icon"/>Nome Userss </h2>
+                    <h2><HiCurrencyDollar className="icon"/>Saldo: {saldo} </h2>
+                </div>
                 <ul aria-label="Cardápio:">
                     { cardapio.map ((item) => <li> {item} </li>)}
                 </ul>

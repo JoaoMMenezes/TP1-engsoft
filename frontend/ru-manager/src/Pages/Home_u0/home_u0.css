@@ -15,8 +15,16 @@
   padding-right: 10px;
 }
 
+.divrow {
+  width: 80vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 h2 {
-  width: 200px;
+  width: 180px;
   justify-content: stretch;
 }
 
