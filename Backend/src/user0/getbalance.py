@@ -4,7 +4,7 @@ import json
 """
 entrada: {"Matricula":300000000}
 
-saida:  "ok"
+saida:  {"Saldo":8}
 
 """
 def parseBalance(raw_dados):
