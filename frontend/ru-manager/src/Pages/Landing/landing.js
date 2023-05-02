@@ -2,80 +2,85 @@ import React, { useState } from "react";
 import api from "../../Services/api";
 import './landing.css'
 
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
+
 function Landing() {
-  // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [user, setUser] = useState(null)
+  const [password, setPassorwd] = useState(null)
+  const navigate = useNavigate()
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
-
-  const handleSubmit = (event) => {
+  const handleLogin = (e) => {
     //Prevent page reload
-    event.preventDefault();  
-    var { uname, pass } = document.forms[0];
-    console.log(uname,pass)
+    e.preventDefault();  
 
-    // Find user login info
+    console.log('user', user)
+    console.log('password', password)
+    
+    // Tenta logar no backend
     api.post("/login", {
-      Matricula: uname.value,
-      Senha: pass.value
+      Matricula: user,
+      Senha: password
     })
-    .then(
-      response => console.log(response)
+    .then(  
+      response => {
+        if (response.data.sucesso) {
+          localStorage.setItem('userName', response.data.name)
+          localStorage.setItem('userId', response.data.matricula)
+          if (response.data.tipo === 2) {                   //Confirmar se é int ou string
+            navigate('/home-u2')
+          } else if (response.data.tipo === 1){             //Confirmar se é int ou string
+            navigate('/home-u1')
+          } else {
+            navigate('/home-u0')
+          } 
+        }
+        else {
+          alert('Erro em efetuar login!')
+        }
+      }
     )
     .catch(
       error => console.log(error)
     )
-    console.log("--------------")
-    // // Compare user info
-    // if (userData) {
-    //   if (userData.password !== pass.value) {
-    //     // Invalid password
-    //     setErrorMessages({ name: "pass", message: errors.pass });
-    //   } else {
-    //     setIsSubmitted(true);
-    //   }
-    // } else {
-    //   // Username not found
-    //   setErrorMessages({ name: "uname", message: errors.uname });
-    // }
   };
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
 
-  // JSX code for login form
-  const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Usuário </label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Senha </label>
-          <input type="password" pattern="[0-9]*" inputmode="numeric" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
 
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Entrar</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        <h1 className="title">Entrar</h1>
+        <Form className="mt-1" onSubmit={handleLogin}>
+           <InputGroup className="mb-3">
+            <InputGroup.Text className="w-25" id="basic-addon1">Usuário:</InputGroup.Text>
+            <Form.Control
+                onChange={(e) => setUser(e.target.value)}
+                aria-label="Matrícula"
+                aria-describedby="basic-addon2"
+            />
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <InputGroup.Text className="w-25">Senha:</InputGroup.Text>
+            <Form.Control 
+                onChange={(e) => setPassorwd(e.target.value)}
+                type="password"
+                aria-label="Senha" 
+            />
+          </InputGroup>
+          <div className="d-grid gap-2">
+              <Button 
+                // onClick={() => {
+                //   localStorage.setItem('userId', user)
+                //   navigate('/home-u0')
+                //   }}
+                type="submit"
+                variant="outline-primary" 
+                >Login</Button>{''}
+          </div>
+        </Form>
       </div>
     </div>
   );
