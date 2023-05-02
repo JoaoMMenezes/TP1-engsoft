@@ -14,7 +14,7 @@ function HomeU0() {
     // Get Saldo
     var saldo = "0,00"
     axios.post("/user0/getbalance").then(
-        (response) => saldo = response.saldo    // CONFIRMAR
+        (response) => saldo = response.data.saldo    // CONFIRMAR
     ).catch(
         (error) => console.log(error)
     )

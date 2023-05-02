@@ -1,16 +1,64 @@
 import React, { useState } from "react";
 import api from "../../Services/api";
-import './home_u2.css'
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 // Funcionalidades:
 //      - Apresentar uma tabela dos usuários que usaram os restaurantes em X tempos
-//      - Apresentar os dados de compra de crédito registrados pelos usuários nível 1 (?)
 
 function HomeU2()  {
+  const [data1, setData1] = useState("00-00-0000")
+  const [data2, setData2] = useState("00-00-0000")
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("data1:", data1)
+    console.log("data2:", data2)
+
+    api.post('/user2/getfinance', {
+      DataInicio: data1,
+      DataFinal: data2
+    })
+    .then(
+      res => console.log(res)
+    )
+    .catch(
+      error => console.log(error)
+    )
+  }
+
   return(
     <div className="app">
-      <div className="box">
-        <h1>Painel Fump</h1>
+      <div className="box mt-2">
+        <h1 className="mt-4 mb-5">Administrador Fump</h1>
+        <text>Pesquisar fluxo de clientes nos restaurantes informando duas datas distintas:</text>
+        <Form onSubmit={handleSubmit} className="form mt-2">
+            <InputGroup className="dates mb-2">
+              <InputGroup.Text className="w-25" id="basic-addon1">Início:</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => setData1(e.target.value)}
+                placeholder="dd-mm-aaaa"
+                aria-label="Matrícula"
+                aria-describedby="basic-addon2"
+              />
+            </InputGroup>
+
+            <InputGroup className="dates mb-2">
+              <InputGroup.Text className="w-25" id="basic-addon1">Fim:</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => setData2(e.target.value)}
+                placeholder="dd-mm-aaaa"
+                aria-label="Matrícula"
+                aria-describedby="basic-addon2"
+              />
+            </InputGroup>
+
+            <div className="d-grid gap-2">
+              <Button type="submit" variant="outline-primary">Pesquisar</Button>{''}
+            </div>
+        </Form>
       </div>
     </div>
   )
