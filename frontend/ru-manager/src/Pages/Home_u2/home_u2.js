@@ -25,7 +25,10 @@ function HomeU2()  {
       res => console.log(res)
     )
     .catch(
-      error => console.log(error)
+      error => {
+        console.log(error)
+        alert("Datas inseridas estão inválidas")
+      }
     )
   }
 

@@ -2,7 +2,7 @@
 import lib.tokenBalance as tb
 import json
 """
-entrada: {"Matricula":300000000}
+entrada: {"Matricula":"300000000"}
 
 saida:  {"Saldo":8}
 

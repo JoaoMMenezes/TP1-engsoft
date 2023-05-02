@@ -1,7 +1,7 @@
 import React from "react";
 import "./home_u0.css"
 import {HiCurrencyDollar, HiUserCircle} from 'react-icons/hi'
-import axios from "axios";
+import api from "../../Services/api";
 
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,8 +13,11 @@ import LogoutNav from "../../Components/LogoutNav";
 
 function HomeU0() {
     // Get Saldo
-    localStorage.setItem('saldo', 0.00)
-    axios.post("/user0/getbalance").then(
+    api.post("/user0/getbalance", {
+        Matricula: localStorage.getItem("userId")
+    }
+    
+    ).then(
         (response) => localStorage.setItem('saldo', response.data.saldo)    // CONFIRMAR
     ).catch(
         (error) => console.log(error)
@@ -43,7 +46,7 @@ function HomeU0() {
                 <Navbar className="w-100 mb-2" bg="light">
                     <Container>
                         <Navbar.Brand><HiUserCircle className="icon align-top"/> Usuário: {localStorage.getItem('userId')}</Navbar.Brand>
-                        <Navbar.Brand><HiCurrencyDollar className="icon align-top "/> Saldo: R$ {localStorage.getItem('saldo')}</Navbar.Brand>
+                        <Navbar.Brand><HiCurrencyDollar className="icon align-top "/> Fichas: {localStorage.getItem("saldo") }</Navbar.Brand>
                     </Container>
                 </Navbar>
                     <ul aria-label="Cardápio:">

@@ -13,8 +13,6 @@ from src.user1.depositoken import deposit, parseDeposit
 from src.user2.FinancialData import parseFinance, financial
 
 
-
-
 app = Flask(__name__)
 CORS(app)
 
@@ -36,17 +34,17 @@ def login():
     try:
         matricula, senhaInserida = parseLogar(raw_dados)
     except:
-        return jsonify({"Tipo":0, "Sucesso":False, "Matricula":matricula,"Nome":"nada"})
+        return jsonify({"tipo":0, "sucesso":False, "matricula":matricula,"nome":"nada"})
     
     tipo = identificarUser(matricula)
 
     try:
         senhaReal, nome = buscarUser(ACESSO.connection, tipo, matricula)
     except:
-        return jsonify({"Tipo":tipo, "Sucesso":False, "Matricula":matricula,"Nome":"nada"})
+        return jsonify({"tipo":tipo, "sucesso":False, "matricula":matricula,"nome":"nada"})
     sucesso = conferirSenha(senhaInserida, senhaReal)
     
-    return jsonify({"Tipo":tipo, "Sucesso":sucesso, "Matricula":matricula, "Nome":nome})
+    return jsonify({"tipo":tipo, "sucesso":sucesso, "matricula":matricula, "nome":nome})
 
 ################################################################################################
 @app.route("/user0/havelunch", methods = ["POST"])
@@ -56,8 +54,8 @@ def haveLunch():
         matricula = parseComer(raw_dados)
         comer(ACESSO, matricula)
     except ValueError:
-        return jsonify({"Mensagem":False})
-    return jsonify({"Mensagem": True})
+        return jsonify({"mensagem":False})
+    return jsonify({"mensagem": True})
 
 ################################################################################################
 @app.route("/user0/getbalance", methods = ["POST"])
@@ -67,8 +65,8 @@ def getBalance():
         matricula = parseBalance(raw_dados)
         saldo = balance(ACESSO, matricula)
     except ValueError:
-       return jsonify({"Saldo": -1})
-    return jsonify({"Saldo": saldo})
+       return jsonify({"saldo": -1})
+    return jsonify({"saldo": saldo})
 
 ################################################################################################
 @app.route("/user1/signin", methods = ["POST"])
@@ -76,10 +74,12 @@ def rotaSignIn():
     try:
         raw_dados  = request.data.decode('utf-8')
         matricula, senha, nome, valorFicha, email = parseSignIn(raw_dados)
+        print("/n/n")
+        print(matricula)
         signIn(ACESSO, matricula, senha, nome, valorFicha, email)
     except ValueError:
-        return jsonify({"Mensagem":False})
-    return jsonify({"Mensagem": True})
+        return jsonify({"mensagem":False})
+    return jsonify({"mensagem": True})
 
 ################################################################################################
 @app.route("/user1/deposittoken", methods = ["POST"])
@@ -89,8 +89,8 @@ def depositToken():
         matricula, amount = parseDeposit(raw_dados)
         deposit(matricula, ACESSO, amount)
     except ValueError:
-        return jsonify({"Mensagem":False})
-    return jsonify({"Mensagem":True})
+        return jsonify({"mensagem":False})
+    return jsonify({"mensagem":True})
 ################################################################################################
 @app.route("/user2/getfinance", methods = ["POST"])
 def getFinancial():
@@ -99,8 +99,9 @@ def getFinancial():
         data_inicio, data_final = parseFinance(raw_dados)
         arquivo = financial(data_inicio, data_final, ACESSO.connection, option = 1)
     except ValueError:
-        return jsonify({"Mensagem":"grafico não foi criado"})
-    return render_template("finance.html")
+        return jsonify({"mensagem":"grafico não foi criado"})
+    #return render_template("finance.html")
+    return jsonify({"mensagem": "foi"})
 
 
 if __name__ == "__main__":

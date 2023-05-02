@@ -10,7 +10,7 @@ saida:  {"Mensagem":True}
 
 def parseSignIn(raw_dados):
     jsonData = json.loads(raw_dados)
-    return jsonData["Matricula"], jsonData["Senha"], jsonData["Nome"], jsonData["ValorFicha"], jsonData["Email"]
+    return int(jsonData["Matricula"]), int(jsonData["Senha"]), jsonData["Nome"], float(jsonData["ValorFicha"]), jsonData["Email"]
 
 def signIn(acesso, matricula, senha, nome, valorFicha, email) -> None:
     siu.User(matricula, senha, nome, valorFicha, acesso, email).signInUser0()

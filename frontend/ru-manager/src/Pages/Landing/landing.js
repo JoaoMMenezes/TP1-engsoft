@@ -26,6 +26,7 @@ function Landing() {
     })
     .then(  
       response => {
+        console.log(response.data.sucesso)
         if (response.data.sucesso) {
           localStorage.setItem('userName', response.data.name)
           localStorage.setItem('userId', response.data.matricula)

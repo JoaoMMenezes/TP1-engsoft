@@ -9,7 +9,7 @@ saida:  {"Mensagem":True}
 """
 def parseDeposit(raw_dados):
     jsonData = json.loads(raw_dados)
-    return jsonData["Matricula"], jsonData["Amount"]
+    return jsonData["Matricula"], int(jsonData["Amount"])
 
 def deposit(matricula, acesso, amount) -> None:
     ficha = tb.GetToken(matricula, acesso).getToken()

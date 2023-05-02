@@ -65,8 +65,8 @@ function HomeU1() {
 
     const handleCadastro = (e) => {
         e.preventDefault();
-        api.post('/user1/deposittoken', {
-            Matricula: matricula,
+        api.post('/user1/signin', {
+            Matricula: novaMatricula,
             Senha: senha,
             Nome: nome,
             ValorFicha: valorFicha,

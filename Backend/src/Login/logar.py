@@ -13,7 +13,7 @@ Suecesso False-> ruim  True-> certo
 """
 def parseLogar(raw_dados):
     dados = json.loads(raw_dados)
-    return dados["Matricula"], int(dados["Senha"])
+    return dados["Matricula"], dados["Senha"]
 
 def identificarUser(matricula):
     tipo = 0
@@ -42,7 +42,7 @@ def buscarUser(acesso, tipo, matricula):
         return dados
     
 def conferirSenha(senha_inserida, senha_real):
-    if(senha_inserida == senha_real):
+    if(senha_inserida == str(senha_real)):
         return True
     else:
         return False
