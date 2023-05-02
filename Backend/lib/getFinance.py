@@ -33,5 +33,5 @@ class GetFinance():
         paper_bgcolor='rgba(0,0,0,0)',
         xaxis_tickformat='%d/%m/%Y'
         )
-        output_html = plotly.offline.plot(output_chart, filename='.\TP1-engsoft\Backend\\templates\\finance.html', auto_open= True)
+        output_html = plotly.offline.plot(output_chart, filename='.\TP1-engsoft\Backend\\templates\\finance.html', auto_open= False)
         return output_html

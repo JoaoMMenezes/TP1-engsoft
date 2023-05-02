@@ -1,6 +1,6 @@
-
 import React, { useState } from "react";
 import api from "../../Services/api";
+import './home_u2.css'
 
 // Funcionalidades:
 //      - Apresentar uma tabela dos usuários que usaram os restaurantes em X tempos
@@ -17,5 +17,3 @@ function HomeU2()  {
 }
 
 export default HomeU2
-
-

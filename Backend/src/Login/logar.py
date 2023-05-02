@@ -2,7 +2,7 @@ import json
 from utils.dbframe import SQL2df
 
 """
- entrada: {"Matricula":"300000000", "Senha":555467}
+ entrada: {"Matricula":"300000000", "Senha":"555467"}
 {"Matricula":"2_ssss", "Senha":1111}
 {"Matricula":"1_alfredo", "Senha":1111}
 

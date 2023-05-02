@@ -100,7 +100,7 @@ def getFinancial():
         arquivo = financial(data_inicio, data_final, ACESSO.connection, option = 1)
     except ValueError:
         return jsonify({"Mensagem":"grafico não foi criado"})
-    return render_template( arquivo)
+    return render_template("finance.html")
 
 
 if __name__ == "__main__":
