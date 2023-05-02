@@ -12,9 +12,9 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function HomeU0() {
     // Get Saldo
-    var saldo = "0,00"
+    localStorage.setItem('saldo', 0.00)
     axios.post("/user0/getbalance").then(
-        (response) => saldo = response.data.saldo    // CONFIRMAR
+        (response) => localStorage.setItem('saldo', response.data.saldo)    // CONFIRMAR
     ).catch(
         (error) => console.log(error)
     )
@@ -37,10 +37,10 @@ function HomeU0() {
     return(
         <div className="app">
             <div className="box">
-            <Navbar className="w-100" bg="light">
+            <Navbar className="w-100 mb-2" bg="light">
                 <Container>
-                    <Navbar.Brand><HiUserCircle className="icon align-top"/> Usuário Usuário Usuário</Navbar.Brand>
-                    <Navbar.Brand><HiCurrencyDollar className="icon align-top "/> Saldo: R$ {saldo}</Navbar.Brand>
+                    <Navbar.Brand><HiUserCircle className="icon align-top"/> Usuário: {localStorage.getItem('userId')}</Navbar.Brand>
+                    <Navbar.Brand><HiCurrencyDollar className="icon align-top "/> Saldo: R$ {localStorage.getItem('saldo')}</Navbar.Brand>
                 </Container>
             </Navbar>
                 <ul aria-label="Cardápio:">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import api from "../../Services/api";
 
 import Button from 'react-bootstrap/Button';
@@ -12,11 +12,10 @@ function HomeU2()  {
   const [data1, setData1] = useState("00-00-0000")
   const [data2, setData2] = useState("00-00-0000")
 
-  const handleSubmit = (e) => {
+  const handleGetFinance = (e) => {
     e.preventDefault();
     console.log("data1:", data1)
     console.log("data2:", data2)
-
     api.post('/user2/getfinance', {
       DataInicio: data1,
       DataFinal: data2
@@ -34,7 +33,7 @@ function HomeU2()  {
       <div className="box mt-2">
         <h1 className="mt-4 mb-5">Administrador Fump</h1>
         <text>Pesquisar fluxo de clientes nos restaurantes informando duas datas distintas:</text>
-        <Form onSubmit={handleSubmit} className="form mt-2">
+        <Form onSubmit={handleGetFinance} className="form mt-2">
             <InputGroup className="dates mb-2">
               <InputGroup.Text className="w-25" id="basic-addon1">Início:</InputGroup.Text>
               <Form.Control
