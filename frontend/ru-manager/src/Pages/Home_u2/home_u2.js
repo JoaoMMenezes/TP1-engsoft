@@ -1,71 +1,67 @@
 import React, { useState } from "react";
 import api from "../../Services/api";
-import './home_u2.css'
 
-function HomeU2() {
-  // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
-  const errors = {
-    data1: "invalid data1",
-    data2: "invalid data2"
-  };
+// Funcionalidades:
+//      - Apresentar uma tabela dos usuários que usaram os restaurantes em X tempos
 
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();  
-    var { data1, data2 } = document.forms[0];
-    console.log(data1,data2)
-    // Find user login info
-    api.post("/user2/getfinance", {
-      DataInicio: data1.value,
-      DataFinal: data2.value
+function HomeU2()  {
+  const [data1, setData1] = useState("00-00-0000")
+  const [data2, setData2] = useState("00-00-0000")
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("data1:", data1)
+    console.log("data2:", data2)
+
+    api.post('/user2/getfinance', {
+      DataInicio: data1,
+      DataFinal: data2
     })
     .then(
-      response => console.log(response)
+      res => console.log(res)
     )
     .catch(
       error => console.log(error)
     )
-    console.log("--------------")
-  };
+  }
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-
-  // JSX code for login form
-  const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>UsuÃ¡rio </label>
-          <input type="text" name="data1" required />
-          {renderErrorMessage("data1")}
-        </div>
-        <div className="input-container">
-          <label>Senha </label>
-          <input type="data2" name="data2" required />
-          {renderErrorMessage("data2")}
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
-
-  return (
+  return(
     <div className="app">
-      <div className="login-form">
-        <div className="title">Entrar</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+      <div className="box mt-2">
+        <h1 className="mt-4 mb-5">Administrador Fump</h1>
+        <text>Pesquisar fluxo de clientes nos restaurantes informando duas datas distintas:</text>
+        <Form onSubmit={handleSubmit} className="form mt-2">
+            <InputGroup className="dates mb-2">
+              <InputGroup.Text className="w-25" id="basic-addon1">Início:</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => setData1(e.target.value)}
+                placeholder="dd-mm-aaaa"
+                aria-label="Matrícula"
+                aria-describedby="basic-addon2"
+              />
+            </InputGroup>
+
+            <InputGroup className="dates mb-2">
+              <InputGroup.Text className="w-25" id="basic-addon1">Fim:</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => setData2(e.target.value)}
+                placeholder="dd-mm-aaaa"
+                aria-label="Matrícula"
+                aria-describedby="basic-addon2"
+              />
+            </InputGroup>
+
+            <div className="d-grid gap-2">
+              <Button type="submit" variant="outline-primary">Pesquisar</Button>{''}
+            </div>
+        </Form>
       </div>
     </div>
-  );
+  )
 }
 
 export default HomeU2

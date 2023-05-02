@@ -1,0 +1,25 @@
+.icon {
+  padding-right: 10px;
+  height: 30px;
+  width: auto;
+}
+
+.divrow {
+  width: 80vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+h2 {
+  width: 180px;
+  justify-content: stretch;
+}
+
+ul:before{
+  content:attr(aria-label);
+  font-size:120%;
+  font-weight:bold;
+  margin-left:-15px;
+}
