@@ -1,18 +1,7 @@
-.homeu0 {
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-  padding: 1rem;
-  height: 20rem;
-  width: 60vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
 .icon {
   padding-right: 10px;
+  height: 30px;
+  width: auto;
 }
 
 .divrow {
