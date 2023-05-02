@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import LogoutNav from "../../Components/LogoutNav";
 
 // Funcionalidades: 
 //      - Ver saldo
@@ -35,20 +36,23 @@ function HomeU0() {
     ]
 
     return(
-        <div className="app">
-            <div className="box">
-            <Navbar className="w-100 mb-2" bg="light">
-                <Container>
-                    <Navbar.Brand><HiUserCircle className="icon align-top"/> Usuário: {localStorage.getItem('userId')}</Navbar.Brand>
-                    <Navbar.Brand><HiCurrencyDollar className="icon align-top "/> Saldo: R$ {localStorage.getItem('saldo')}</Navbar.Brand>
-                </Container>
-            </Navbar>
-                <ul aria-label="Cardápio:">
-                    { cardapio.map ((item) => <li> {item} </li>)}
-                </ul>
-                <text>Cardápio sujeito a alterações.</text>
+        <>
+            <LogoutNav/>
+            <div className="app">
+                <div className="box">
+                <Navbar className="w-100 mb-2" bg="light">
+                    <Container>
+                        <Navbar.Brand><HiUserCircle className="icon align-top"/> Usuário: {localStorage.getItem('userId')}</Navbar.Brand>
+                        <Navbar.Brand><HiCurrencyDollar className="icon align-top "/> Saldo: R$ {localStorage.getItem('saldo')}</Navbar.Brand>
+                    </Container>
+                </Navbar>
+                    <ul aria-label="Cardápio:">
+                        { cardapio.map ((item) => <li> {item} </li>)}
+                    </ul>
+                    <text>Cardápio sujeito a alterações.</text>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -1,0 +1,12 @@
+.logoutNav{
+    display: flex;
+    justify-content: end;
+}
+
+.logoutButton{
+    width: 20vw;
+}
+
+.blob{
+    width: 1vw;
+}
