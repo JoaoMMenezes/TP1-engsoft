@@ -30,6 +30,9 @@ function HomeU1() {
     const [valorFicha, setValorFicha] = useState()
     const [email, setEmail] = useState()
 
+    // States de retirar fichas
+    const [retirar, setRetirar] = useState('')
+
     const confirmar = () => {
         console.log('matricula', matricula)
         console.log('fichas', fichas)
@@ -45,6 +48,29 @@ function HomeU1() {
         api.post('/user1/deposittoken', {
             Matricula: matricula,
             Amount: fichas
+        })
+        .then(
+            res => {
+                if (res.data.mensagem) {
+                    alert('Compra realizada com sucesso!')
+                } else {
+                    alert('Erro ao realizar compra!')
+                }
+            }
+        )
+        .catch(
+            error => {
+                console.log(error)
+                alert('Erro ao realizar compra!')
+            }
+        )
+    }
+
+    const handleRetirarCredito = (e) => {
+        e.preventDefault();
+        console.log(retirar)
+        api.post('/user0/havelunch', {
+            Matricula: retirar
         })
         .then(
             res => {
@@ -93,7 +119,7 @@ function HomeU1() {
         <>
             <LogoutNav/>
             <div className="app">
-                <div className="box mt-2">
+                <div className="box mt-2 mb-4">
                     <h1 className="mt-4" >Administrador 1</h1>
                     <Accordion className="w-75 mt-4 mb-4">
                         <Accordion.Item eventKey="0">
@@ -107,7 +133,7 @@ function HomeU1() {
                                             onChange={(e) => setMatricula(e.target.value)}
                                             aria-label="Matrícula"
                                             aria-describedby="basic-addon2"
-                                            placeholder="Ex: Lucas Martins Palhares"
+                                            placeholder="Ex: 123456789"
                                         />
                                     </InputGroup>
 
@@ -195,6 +221,26 @@ function HomeU1() {
 
                                     <div className="d-grid gap-2">
                                         <Button onClick={confirmar} type="submit" variant="outline-primary">Cadastrar</Button>{''}
+                                    </div>
+                                </Form>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header className="w-100" ><b>Cobrar almoço manualmente</b></Accordion.Header>
+                            <Accordion.Body>
+                                <Form className="mt-1" onSubmit={handleRetirarCredito}>
+                                    <Form.Label>Retirar crédito do usuário:</Form.Label>
+                                    <InputGroup className="mb-3">
+                                        <InputGroup.Text id="basic-addon1">Matrícula:</InputGroup.Text>
+                                        <Form.Control
+                                            onChange={(e) => setRetirar(e.target.value)}
+                                            aria-label="Matrícula"
+                                            aria-describedby="basic-addon2"
+                                            placeholder="Ex: 123456789"
+                                        />
+                                    </InputGroup>
+                                    <div className="d-grid gap-2">
+                                        <Button type="submit" variant="outline-primary">Retirar</Button>{''}
                                     </div>
                                 </Form>
                             </Accordion.Body>
