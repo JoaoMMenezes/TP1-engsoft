@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./home_u0.css"
 import {HiCurrencyDollar, HiUserCircle} from 'react-icons/hi'
 import api from "../../Services/api";
@@ -12,17 +12,26 @@ import LogoutNav from "../../Components/LogoutNav";
 //      - Ver cardápio
 
 function HomeU0() {
-    // Get Saldo
-    api.post("/user0/getbalance", {
-        Matricula: localStorage.getItem("userId")
-    }
-    
-    ).then(
-        (response) => localStorage.setItem('saldo', response.data.saldo)    // CONFIRMAR
-    ).catch(
-        (error) => console.log(error)
-    )
+    //State loading
+    const [isLoading, setLoading] = useState(true);
 
+    useEffect(() => {
+        // Get Saldo
+        api.post("/user0/getbalance", {
+            Matricula: localStorage.getItem("userId")
+        }).then(
+            (response) => {
+                localStorage.setItem('saldo', response.data.saldo)
+                setLoading(false)
+            }    // CONFIRMAR
+        ).catch(
+            (error) => console.log(error)
+        )
+      }, []);
+
+    if (isLoading) {
+        return <div className="App">Loading...</div>;
+    }
     // Cardápio estático
     const cardapio = [
         'Almoço',
