@@ -31,7 +31,10 @@ class GetFinance():
         xaxis_title='Data',
         yaxis_title='Receita',
         paper_bgcolor='rgba(0,0,0,0)',
-        xaxis_tickformat='%d/%m/%Y'
+        )
+        output_chart.update_xaxes(
+            dtick="D1", # sets minimal interval to day
+            tickformat="%d/%m/%Y", # the date format you want 
         )
         output_html = plotly.offline.plot(output_chart, filename='.\TP1-engsoft\Backend\\templates\\finance.html', auto_open= True)
         return output_html

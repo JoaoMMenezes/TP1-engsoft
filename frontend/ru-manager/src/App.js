@@ -9,30 +9,9 @@ import { UserProvider } from './Services/UserContext';
 
 import Nav from 'react-bootstrap/Nav';
 
-function TabsExample() {
-  return (
-    <Nav variant="tabs">
-      <Nav.Item>
-        <Nav.Link href="/">login</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/home-u0">home_u0</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/home-u1">home_u1</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/home-u2">home_u2</Nav.Link>
-      </Nav.Item>
-    </Nav>
-  );
-}
-
-
 function App() {
   return(
     <Router>
-      <TabsExample/>
       <UserProvider>
           <Routes>
               <Route exact path='/'     element={<Landing/>}/>
